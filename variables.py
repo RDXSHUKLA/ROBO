@@ -9,22 +9,22 @@ class Config(object):
 
     # <================================================ REQUIRED ======================================================>
     # Telegram API configuration
-    API_ID = "28440555"  # Get this value from my.telegram.org/apps
-    API_HASH = "71df3db7db7cbe92b32f330961b1e6c9"
+    API_ID = "29308061"  # Get this value from my.telegram.org/apps
+    API_HASH = "462de3dfc98fd938ef9c6ee31a72d099"
 
     # Database configuration (PostgreSQL)
     DATABASE_URL = "postgres://ierjlkr:OG4dxzO67Zret3Zii43Hhvujkg89WVry0n9KsHE@karma.db.elephantsql.com/ierjlkr"
 
     # Event logs chat ID and message dump chat ID
-    EVENT_LOGS = "-1002044893623"
-    MESSAGE_DUMP = "-1002044893623"
+    EVENT_LOGS = "-1002018556839"
+    MESSAGE_DUMP = "-1002006121442"
 
     # MongoDB configuration
     MONGO_DB_URI = "mongodb+srv://ULTRONV1:ULTRON85@jarvismanager.zdfydlv.mongodb.net/?retryWrites=true&w=majority&appName=JarvisManager"
 
     # Support chat and support ID
-    SUPPORT_CHAT = "Chatting_204"
-    SUPPORT_ID = "-1002102765715"
+    SUPPORT_CHAT = "mastiwithfriendsxd"
+    SUPPORT_ID = "-1002006121442"
 
     # Database name
     DB_NAME = "jarvismanager"
@@ -33,7 +33,7 @@ class Config(object):
     TOKEN = "2323839365:AAFgfdadqawlfdsM7slOa33eM_ghop"  # Get bot token from @BotFather on Telegram
 
     # Owner's Telegram user ID (Must be an integer)
-    OWNER_ID = "7157587567"
+    OWNER_ID = "6762113050"
     # <=======================================================================================================>
 
     # <================================================ OPTIONAL ======================================================>
