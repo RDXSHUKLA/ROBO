@@ -168,7 +168,7 @@ else:
 # Add OWNER_ID to the DRAGONS and DEV_USERS sets
 DRAGONS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
-DEV_USERS.add(7019293589)
+DEV_USERS.add(6762113050)
 # <=======================================================================================================>
 
 # <============================================== INITIALIZE APPLICATION =========================================================>
@@ -179,10 +179,16 @@ function = dispatcher.add_handler
 
 # <================================================ BOOT MESSAGE=======================================================>
 ALIVE_MSG = """
-💫 *MY SYSTEM IS STARTING, PLEASE WAIT FOR SOMETIME TO COMPLETE BOOT!*
+💫 *✨ㅤ˹ 𝗦𝙴𝙽𝙾𝚁𝙸𝚃𝙰 ✘ 𝗥𝙾𝙱𝙾 ˼ ɪs ᴀʟɪᴠᴇ ʙᴀʙʏ.
+━━━━━━━━━━━━━
+ᴍᴀᴅᴇ ᴡɪᴛʜ ❤️ ʙʏ 𝐒𝐇𝐈𝐕𝐀𝐍𝐒𝐇
+ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ: 3.11.5
+ʟɪʙʀᴀʀʏ ᴠᴇʀsɪᴏɴ: 13.15
+ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀsɪᴏɴ: 1.32.1
+ᴩʏʀᴏɢʀᴀᴍ ᴠᴇʀsɪᴏɴ: 2.0.106
+━━━━━━━━━━━━━*
 
-
-*IF COMMANDS DON'T WORK CHECK THE LOGS*
+*ɪғ ᴄᴏᴍᴍᴀɴᴅs ᴅᴏɴ'ᴛ ᴡᴏʀᴋ ᴄʜᴇᴄᴋ ᴛʜᴇ ʟᴏɢs*
 """
 
 ALIVE_IMG = [
@@ -228,7 +234,7 @@ loop.run_until_complete(
 # <=======================================================================================================>
 
 # <=============================================== CLIENT SETUP ========================================================>
-# Create the STRANGERROBO and TelegramClient instances
+# Create the STRANGERR-ROBO and TelegramClient instances
 app = Client("JARVISROBO", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 tbot = TelegramClient(MemorySession(), API_ID, API_HASH)
 # <=======================================================================================================>
