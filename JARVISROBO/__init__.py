@@ -192,7 +192,7 @@ ALIVE_MSG = """
 """
 
 ALIVE_IMG = [
-    ""https://graph.org/file/8dcccaaa09c3ec38d9c75.jpg",
+    "https://graph.org/file/8dcccaaa09c3ec38d9c75.jpg",
     "https://graph.org/file/74d2385efc329c13c11e9.jpg",
     "https://graph.org/file/d818146f35f6a439a7a7f.jpg",
     "https://graph.org/file/d1d68eaaa8aecc68f8387.jpg",
