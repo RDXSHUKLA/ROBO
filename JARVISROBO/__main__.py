@@ -164,7 +164,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     update.effective_chat.id,
                     HELPABLE[mod].__help__,
                     InlineKeyboardMarkup(
-                        [[InlineKeyboardButton(text="๏ ʙᴀᴄᴋ ๏", callback_data="help_back")]]
+                        [[InlineKeyboardButton(text="▫️ ʙᴀᴄᴋ ▫️", callback_data="help_back")]]
                     ),
                 )
 
