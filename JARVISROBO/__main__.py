@@ -379,7 +379,7 @@ async def gitsource_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
         )
 
         # Adding the inline button
-        keyboard = [[InlineKeyboardButton(text="๏ ʙᴀᴄᴋ ๏", callback_data="Jarvis_back")]]
+        keyboard = [[InlineKeyboardButton(text="▪️ ʙᴀᴄᴋ ▪️", callback_data="Jarvis_back")]]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         await query.edit_message_text(
