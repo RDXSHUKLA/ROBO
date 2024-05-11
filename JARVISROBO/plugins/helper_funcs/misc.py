@@ -93,17 +93,17 @@ def paginate_modules(page_n: int, module_dict: Dict, prefix, chat=None) -> List:
         pairs = pairs[modulo_page * 6 : 6 * (modulo_page + 1)] + [
             (
                 EqInlineKeyboardButton(
-                    "๏ ʙᴀᴄᴋ ๏", callback_data="{}_prev({})".format(prefix, modulo_page)
+                    "▫️ ʙᴀᴄᴋ ▫️", callback_data="{}_prev({})".format(prefix, modulo_page)
                 ),
                 EqInlineKeyboardButton("๏ ᴍᴇɴᴜ ๏", callback_data="Jarvis_back"),
                 EqInlineKeyboardButton(
-                    "๏ ɴᴇxᴛ ๏", callback_data="{}_next({})".format(prefix, modulo_page)
+                    "▫️ ɴᴇxᴛ ▫️", callback_data="{}_next({})".format(prefix, modulo_page)
                 ),
             )
         ]
 
     else:
-        pairs += [[EqInlineKeyboardButton("๏ ʙᴀᴄᴋ ๏", callback_data="Jarvis_back")]]
+        pairs += [[EqInlineKeyboardButton("▫️ ʙᴀᴄᴋ ▫️", callback_data="Jarvis_back")]]
 
     return pairs
 
