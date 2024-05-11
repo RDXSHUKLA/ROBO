@@ -107,8 +107,9 @@ def welcomepic(pic, user, chatname, id, uname, brightness_factor=1.3):
 
     pfp_position = (48, 88)
     background.paste(pfp, pfp_position, pfp)
-    background.save(f"downloads/welcome#{id}.png")
-    return f"downloads/welcome#{id}.png"
+    welcome_image_path = f"downloads/welcome_{user_id}.png"
+    background.save(welcome_image_path)
+    return welcome_image_path
 
 
 @app.on_chat_member_updated(ft.group)
