@@ -313,7 +313,7 @@ async def new_member(update: Update, context: ContextTypes.DEFAULT_TYPE):
     new_members = update.effective_message.new_chat_members
 
     for new_mem in new_members:
-        if new_mem.id == bot.id and not Mikobot.ALLOW_CHATS:
+        if new_mem.id == bot.id and not JARVISROBO.ALLOW_CHATS:
             with suppress(BadRequest):
                 await update.effective_message.reply_text(
                     "Groups are disabled for {}, I'm outta here.".format(bot.first_name)
