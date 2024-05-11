@@ -186,11 +186,16 @@ ALIVE_MSG = """
 """
 
 ALIVE_IMG = [
-    "https://telegra.ph/file/aea63989a4d43fba0c28d.jpg",
-    "https://telegra.ph/file/cadd372780a08b259daa1.jpg",
-    "https://telegra.ph/file/076b3fe8b5cdac45c114f.jpg",
-    "https://telegra.ph/file/b965be15fe738e6a418c4.jpg",
-    "https://telegra.ph/file/05fa38297aef9ca5d7101.jpg",
+    ""https://graph.org/file/8dcccaaa09c3ec38d9c75.jpg",
+    "https://graph.org/file/74d2385efc329c13c11e9.jpg",
+    "https://graph.org/file/d818146f35f6a439a7a7f.jpg",
+    "https://graph.org/file/d1d68eaaa8aecc68f8387.jpg",
+    "https://graph.org/file/257fe1ec8828b836c70f7.jpg",
+    "https://graph.org/file/8b044edab3d3173544439.jpg",
+    "https://graph.org/file/8ed87bfd7c0b3dbdd1bf5.jpg",
+    "https://graph.org/file/1a33887db1a3b5dee1b0a.jpg",
+    "https://graph.org/file/04ea07e42660988229834.jpg",
+    "https://graph.org/file/abb6b4bb00e2751bc9f54.jpg",
 ]
 # <=======================================================================================================>
 
@@ -223,7 +228,7 @@ loop.run_until_complete(
 # <=======================================================================================================>
 
 # <=============================================== CLIENT SETUP ========================================================>
-# Create the JARVISROBO and TelegramClient instances
+# Create the STRANGERROBO and TelegramClient instances
 app = Client("JARVISROBO", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 tbot = TelegramClient(MemorySession(), API_ID, API_HASH)
 # <=======================================================================================================>
