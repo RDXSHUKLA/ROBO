@@ -30,33 +30,33 @@ ALIVE_ANIMATION = [
      "https://telegra.ph/file/f09aa12ffdf215b2aa6f0.jpg",
 ]
 
-FIRST_PART_TEXT = "*ʜᴇʏ* `{}` , 🥀 . . ."
+FIRST_PART_TEXT = "*ʜᴇʏ* `{}` , 💫 . . ."
 
 PM_START_TEXT = """
-*๏ ᴛʜɪs ɪs* ˹ᴊᴀʀᴠɪs˼ !
-➻ ᴛʜᴇ ᴍᴏsᴛ ᴩᴏᴡᴇʀғᴜʟ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴩ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴡɪᴛʜ sᴏᴍᴇ ᴀᴡᴇsᴏᴍᴇ ᴀɴᴅ ᴜsᴇғᴜʟ ғᴇᴀᴛᴜʀᴇs ✨
+*❖ ᴛʜɪs ɪs* ˹sᴛʀᴀɴɢᴇʀ ʀᴏʙᴏ˼ !
+✦ ᴛʜᴇ ᴍᴏsᴛ ᴩᴏᴡᴇʀғᴜʟ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴩ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴡɪᴛʜ sᴏᴍᴇ ᴀᴡᴇsᴏᴍᴇ ᴀɴᴅ ᴜsᴇғᴜʟ ғᴇᴀᴛᴜʀᴇs 🌹
 
 ──────────────────
-*๏ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʜᴇʟᴩ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴍʏ ᴍᴏᴅᴜʟᴇs ᴀɴᴅ ᴄᴏᴍᴍᴀɴᴅs.*
+*❖ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʜᴇʟᴩ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴍʏ ᴍᴏᴅᴜʟᴇs ᴀɴᴅ ᴄᴏᴍᴍᴀɴᴅs.*
 """
 
 START_BTN = [
    [
         InlineKeyboardButton(
-            text="✧ ᴀᴅᴅ ᴍᴇ ✧",
+            text="▪️ ᴀᴅᴅ ᴍᴇ ▪️",
             url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
         ),
     ],
    [
-        InlineKeyboardButton(text="ʜᴇʟᴩ & ᴄᴏᴍᴍᴀɴᴅs", callback_data="help_back"),
+        InlineKeyboardButton(text="▫️ʜᴇʟᴩ & ᴄᴏᴍᴍᴀɴᴅs▫️", callback_data="help_back"),
     ],
     [
-        InlineKeyboardButton(text="❄ ᴀʙᴏᴜᴛ ❄", callback_data="Jarvis_"),
-        InlineKeyboardButton(text="✨ sᴜᴩᴩᴏʀᴛ ✨", url=f"https://t.me/JARVIS_V_SUPPORT"),
+        InlineKeyboardButton(text="🔸 ᴀʙᴏᴜᴛ 🔸", callback_data="Jarvis_"),
+        InlineKeyboardButton(text="🕯️ sᴜᴩᴩᴏʀᴛ 🕯️", url=f"https://t.me/MASTIWITHFRIENDSXD"),
     ],
    [
-        InlineKeyboardButton(text="🥀 ᴅᴇᴠᴇʟᴏᴩᴇʀ 🥀", url=f"tg://user?id={OWNER_ID}"),
-        InlineKeyboardButton(text="☁️ sᴏᴜʀᴄᴇ ☁️", callback_data="git_source"),
+        InlineKeyboardButton(text="💻 ᴅᴇᴠᴇʟᴏᴩᴇʀ 💻", url=f"tg://user?id={OWNER_ID}"),
+        InlineKeyboardButton(text="📺 sᴏᴜʀᴄᴇ 📺", callback_data="git_source"),
     ],
 ]
 
@@ -68,28 +68,28 @@ GROUP_START_BTN = [
         ),
     ],
     [
-        InlineKeyboardButton(text="✨ sᴜᴩᴩᴏʀᴛ ✨", url=f"https://t.me/JARVIS_V_SUPPORT"),
-        InlineKeyboardButton(text="🥀 ᴅᴇᴠᴇʟᴏᴩᴇʀ 🥀", url=f"tg://user?id={OWNER_ID}"),
+        InlineKeyboardButton(text="🕯️ sᴜᴩᴩᴏʀᴛ 🕯️", url=f"https://t.me/MASTIWITHFRIENDSXD"),
+        InlineKeyboardButton(text="💻 ᴅᴇᴠᴇʟᴏᴩᴇʀ 💻", url=f"tg://user?id={OWNER_ID}"),
     ],
 ]
 
 ALIVE_BTN = [
     [
-        ib(text="sᴜᴩᴩᴏʀᴛ", url="https://t.me/JARVIS_V_SUPPORT"),
-        ib(text="sᴜᴩᴩᴏʀᴛ ᴄʜᴀᴛ", url="https://t.me/Dora_Hub"),
+        ib(text="▪️ᴜᴘᴅᴀᴛᴇs▪️", url="https://t.me/SHIVANSH474"),
+        ib(text="🔸sᴜᴩᴩᴏʀᴛ ᴄʜᴀᴛ🔸", url="https://t.me/MASTIWITHFRIENDSXD"),
     ],
     [
         ib(
-            text="✧ ᴀᴅᴅ ᴍᴇ ✧",
+            text="🔺 ᴀᴅᴅ ᴍᴇ 🔺",
             url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
         ),
     ],
 ]
 
 HELP_STRINGS = f"""
-*» ᴊᴀʀᴠɪs ᴇxᴄʟᴜsɪᴠᴇ ꜰᴇᴀᴛᴜʀᴇs*
+*❖ » sᴛʀᴀɴɢᴇʀ ʀᴏʙᴏ ᴇxᴄʟᴜsɪᴠᴇ ꜰᴇᴀᴛᴜʀᴇs*
 
 ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅꜱ ꜱᴇᴄᴛɪᴏɴ.
- ‣ ɪɴ ᴘᴍ : ᴡɪʟʟ ꜱᴇɴᴅ ʏᴏᴜ ʜᴇʟᴘ ꜰᴏʀ ᴀʟʟ ꜱᴜᴘᴘᴏʀᴛᴇᴅ ᴍᴏᴅᴜʟᴇꜱ.
- ‣ ɪɴ ɢʀᴏᴜᴘ : ᴡɪʟʟ ʀᴇᴅɪʀᴇᴄᴛ ʏᴏᴜ ᴛᴏ ᴘᴍ, ᴡɪᴛʜ ᴀʟʟ ᴛʜᴀᴛ ʜᴇʟᴘ ᴍᴏᴅᴜʟᴇꜱ.
+ ✦ ɪɴ ᴘᴍ : ᴡɪʟʟ ꜱᴇɴᴅ ʏᴏᴜ ʜᴇʟᴘ ꜰᴏʀ ᴀʟʟ ꜱᴜᴘᴘᴏʀᴛᴇᴅ ᴍᴏᴅᴜʟᴇꜱ.
+ ✦ ɪɴ ɢʀᴏᴜᴘ : ᴡɪʟʟ ʀᴇᴅɪʀᴇᴄᴛ ʏᴏᴜ ᴛᴏ ᴘᴍ, ᴡɪᴛʜ ᴀʟʟ ᴛʜᴀᴛ ʜᴇʟᴘ ᴍᴏᴅᴜʟᴇꜱ.
  """
