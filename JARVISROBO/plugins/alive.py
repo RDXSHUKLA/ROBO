@@ -31,12 +31,12 @@ async def alive(_, message: Message):
     caption = f"""**✤ʜᴇʏ ɪ ᴀᴍ {BOT_NAME}**
 
 ━━━━━━ ✦✿✦ ━━━━━━
-✪ **ᴄʀᴇᴀᴛᴏʀ:** [sʜɪᴠᴀɴsʜ-xᴅ](https://t.me/SHIVANSH474)
+✪ **❖ᴄʀᴇᴀᴛᴏʀ:** [sʜɪᴠᴀɴsʜ-xᴅ](https://t.me/SHIVANSH474)
 
 {library_versions_text}
 
-➲ **ᴘʏᴛʜᴏɴ ➼:** `{version_info[0]}.{version_info[1]}.{version_info[2]}`
-➲ **sᴛʀᴀɴɢᴇʀ:** `2.0`
+➲ **❖ᴘʏᴛʜᴏɴ ➼:** `{version_info[0]}.{version_info[1]}.{version_info[2]}`
+➲ **❖sᴛʀᴀɴɢᴇʀ:** `2.0`
 ━━━━━━ ✦✿✦ ━━━━━━"""
 
     await message.reply_animation(
