@@ -8,7 +8,10 @@ from JARVISROBO import BOT_USERNAME, OWNER_ID, SUPPORT_CHAT, BOT_NAME
 
 # <============================================== CONSTANTS =========================================================>
 STATS_IMG = [
-    "https://graph.org/file/8dcccaaa09c3ec38d9c75.jpg",
+    "https://graph.org/file/257fe1ec8828b836c70f7.jpg",
+]
+START_IMG = [
+    ""https://graph.org/file/8dcccaaa09c3ec38d9c75.jpg",
     "https://graph.org/file/74d2385efc329c13c11e9.jpg",
     "https://graph.org/file/d818146f35f6a439a7a7f.jpg",
     "https://graph.org/file/d1d68eaaa8aecc68f8387.jpg",
@@ -20,11 +23,11 @@ STATS_IMG = [
     "https://graph.org/file/abb6b4bb00e2751bc9f54.jpg",
 ]
 
-HEY_IMG = "https://telegra.ph/file/9458a724ae8ebe1de8565.png"
+HEY_IMG = "https://graph.org/file/8ed87bfd7c0b3dbdd1bf5.jpg"
 
 ALIVE_ANIMATION = [
-     "https://graph.org/file/c3b6db252f9b089a7d14a.mp4",
-     "https://graph.org/file/b28f15902589c079f5f79.mp4",
+     "https://te.legra.ph/file/eace7a5d8d4b515a11e50.jpg",
+     "https://telegra.ph/file/f09aa12ffdf215b2aa6f0.jpg",
 ]
 
 FIRST_PART_TEXT = "*ʜᴇʏ* `{}` , 🥀 . . ."
@@ -87,6 +90,6 @@ HELP_STRINGS = f"""
 *» ᴊᴀʀᴠɪs ᴇxᴄʟᴜsɪᴠᴇ ꜰᴇᴀᴛᴜʀᴇs*
 
 ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅꜱ ꜱᴇᴄᴛɪᴏɴ.
- ‣ ɪɴ ᴘᴍ : ᴡɪʟʟ ꜱᴇɴᴅ ʏᴏᴜ ʜᴇʟᴘ​ ꜰᴏʀ ᴀʟʟ ꜱᴜᴘᴘᴏʀᴛᴇᴅ ᴍᴏᴅᴜʟᴇꜱ.
- ‣ ɪɴ ɢʀᴏᴜᴘ : ᴡɪʟʟ ʀᴇᴅɪʀᴇᴄᴛ ʏᴏᴜ ᴛᴏ ᴘᴍ, ᴡɪᴛʜ ᴀʟʟ ᴛʜᴀᴛ ʜᴇʟᴘ​ ᴍᴏᴅᴜʟᴇꜱ.
+ ‣ ɪɴ ᴘᴍ : ᴡɪʟʟ ꜱᴇɴᴅ ʏᴏᴜ ʜᴇʟᴘ ꜰᴏʀ ᴀʟʟ ꜱᴜᴘᴘᴏʀᴛᴇᴅ ᴍᴏᴅᴜʟᴇꜱ.
+ ‣ ɪɴ ɢʀᴏᴜᴘ : ᴡɪʟʟ ʀᴇᴅɪʀᴇᴄᴛ ʏᴏᴜ ᴛᴏ ᴘᴍ, ᴡɪᴛʜ ᴀʟʟ ᴛʜᴀᴛ ʜᴇʟᴘ ᴍᴏᴅᴜʟᴇꜱ.
  """
