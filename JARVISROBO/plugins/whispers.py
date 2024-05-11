@@ -170,8 +170,8 @@ __help__ = """
 
 ➠ *Commands:*
 
-» @JARVIS_N_ROBOT your message @username
-» @JARVIS_N_ROBOT @username your message
+» @SHIVANSH474 your message @username
+» @SHIVANSH474 @username your message
 """
 
 __mod_name__ = "Wʜɪsᴘᴇʀ-ᴍsɢ"
