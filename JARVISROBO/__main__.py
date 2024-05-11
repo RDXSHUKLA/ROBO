@@ -291,7 +291,7 @@ async def help_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="๏ ʙᴀᴄᴋ ๏", callback_data="help_back")]]
+                    [[InlineKeyboardButton(text="▪️ ʙᴀᴄᴋ ▪️", callback_data="help_back")]]
                 ),
             )
 
@@ -338,18 +338,18 @@ async def stats_back(update: Update, context: ContextTypes.DEFAULT_TYPE):
         mem = psutil.virtual_memory().percent
         disk = psutil.disk_usage("/").percent
         text = f"""
-sʏsᴛᴇᴍ sᴛᴀᴛs ᴏғ Jᴀʀᴠɪs-ʀᴏʙᴏ
+❖ sʏsᴛᴇᴍ sᴛᴀᴛs ᴏғ Sᴛʀᴀɴɢᴇʀ-ʀᴏʙᴏ ❖
 ▰▰▰▰▰▰▰▰▰▰▰▰▰
-ᴜᴘᴛɪᴍᴇ ➼ {uptime}
-ᴄᴘᴜ ➼ {cpu}%
-ʀᴀᴍ ➼ {mem}%
-ᴅɪsᴋ ➼ {disk}%
+✤ ᴜᴘᴛɪᴍᴇ ➼ {uptime}
+✤ ᴄᴘᴜ ➼ {cpu}%
+✤ ʀᴀᴍ ➼ {mem}%
+✤ ᴅɪsᴋ ➼ {disk}%
 
-ᴘʏᴛʜᴏɴ ➼ {PYTHON_VERSION}
+✤ ᴘʏᴛʜᴏɴ ➼ {PYTHON_VERSION}
 
-ᴘᴛʙ ➼ {PTB_VERSION}
-ᴛᴇʟᴇᴛʜᴏɴ ➼ {TELETHON_VERSION}
-ᴘʏʀᴏɢʀᴀᴍ ➼ {PYROGRAM_VERSION}
+✤ ᴘᴛʙ ➼ {PTB_VERSION}
+✤ ᴛᴇʟᴇᴛʜᴏɴ ➼ {TELETHON_VERSION}
+✤ ᴘʏʀᴏɢʀᴀᴍ ➼ {PYROGRAM_VERSION}
 """
         await query.answer(text=text, show_alert=True)
 
@@ -363,7 +363,7 @@ async def gitsource_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
         message_text = (
             f"""
 *ʜᴇʏ,
-ᴛʜɪs ɪs ᴊᴀʀᴠɪs ᴛʜᴇ ʀᴏʙᴏ.,
+ᴛʜɪs ɪs sᴛʀᴀɴɢᴇʀ ʀᴏʙᴏ.,
 ᴀɴ ᴏᴩᴇɴ sᴏᴜʀᴄᴇ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴩ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ.*
 
 ᴡʀɪᴛᴛᴇɴ ɪɴ ᴩʏᴛʜᴏɴ ᴡɪᴛʜ ᴛʜᴇ ʜᴇʟᴩ ᴏғ : [ᴛᴇʟᴇᴛʜᴏɴ](https://github.com/LonamiWebs/Telethon)
@@ -371,10 +371,10 @@ async def gitsource_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
 [ᴩʏᴛʜᴏɴ-ᴛᴇʟᴇɢʀᴀᴍ-ʙᴏᴛ](https://github.com/python-telegram-bot/python-telegram-bot)
 ᴀɴᴅ ᴜsɪɴɢ [sǫʟᴀʟᴄʜᴇᴍʏ](https://www.sqlalchemy.org) ᴀɴᴅ [ᴍᴏɴɢᴏ](https://cloud.mongodb.com) ᴀs ᴅᴀᴛᴀʙᴀsᴇ.
 
-*ʜᴇʀᴇ ɪs ᴍʏ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ :* [ɢɪᴛʜᴜʙ](https://github.com/doraemon890)
+*ʜᴇʀᴇ ɪs ᴍʏ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ :* [ɢɪᴛʜᴜʙ](https://github.com/itzshukla)
 
-{BOT_NAME} ɪs ʟɪᴄᴇɴsᴇᴅ ᴜɴᴅᴇʀ ᴛʜᴇ [ᴍɪᴛ ʟɪᴄᴇɴsᴇ](https://github.com/doraemon890/JARVIS-ROBOT/blob/master/LICENSE).
-© 2024 - 2025 [JARVIS](https://t.me/{SUPPORT_CHAT}), ᴀʟʟ ʀɪɢʜᴛs ʀᴇsᴇʀᴠᴇᴅ.
+{BOT_NAME} ɪs ʟɪᴄᴇɴsᴇᴅ ᴜɴᴅᴇʀ ᴛʜᴇ [ᴍɪᴛ ʟɪᴄᴇɴsᴇ](https://github.com/itzshukla/STRANGER-ROBOT/blob/master/LICENSE).
+© 2024 - 2025 [SUPPORT](https://t.me/{SUPPORT_CHAT}), ᴀʟʟ ʀɪɢʜᴛs ʀᴇsᴇʀᴠᴇᴅ.
 """
         )
 
@@ -407,20 +407,20 @@ async def Jarvis_about_callback(update: Update, context: ContextTypes.DEFAULT_TY
     if query.data == "Jarvis_":
         uptime = get_readable_time((time.time() - StartTime))
         message_text = (
-            f"ʜᴇʏ,🥀\nᴛʜɪs ɪs ✨`˹𝙹ᴀʀᴠɪs ✘ 𝚁ᴏʙᴏ ˼`"
+            f"ʜᴇʏ,🥀\nᴛʜɪs ɪs ✨`˹sᴛʀᴀɴɢᴇʀ ✘ 𝚁ᴏʙᴏ ˼`"
             "\n🔥ᴀ ᴘᴏᴡᴇʀꜰᴜʟ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ʙᴜɪʟᴛ ᴛᴏ ʜᴇʟᴘ ʏᴏᴜ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴇᴀꜱɪʟʏ ᴀɴᴅ ᴛᴏ ᴘʀᴏᴛᴇᴄᴛ ʏᴏᴜʀ ɢʀᴏᴜᴘ ꜰʀᴏᴍ ꜱᴄᴀᴍᴍᴇʀꜱ ᴀɴᴅ ꜱᴘᴀᴍᴍᴇʀꜱ🔥."
             "\nᴡʀɪᴛᴛᴇɴ ɪɴ ᴩʏᴛʜᴏɴ ᴡɪᴛʜ sǫʟᴀʟᴄʜᴇᴍʏ ᴀɴᴅ ᴍᴏɴɢᴏᴅʙ ᴀs ᴅᴀᴛᴀʙᴀsᴇ."
             "\n\n────────────────────"
-            f"\n➻ ᴜᴩᴛɪᴍᴇ » {uptime}"
-            f"\n➻ ᴜsᴇʀs » {sql.num_users()}"
-            f"\n➻ ᴄʜᴀᴛs » {sql.num_chats()}"
+            f"\n✦ ᴜᴩᴛɪᴍᴇ » {uptime}"
+            f"\n✦ ᴜsᴇʀs » {sql.num_users()}"
+            f"\n✦ ᴄʜᴀᴛs » {sql.num_chats()}"
             "\n────────────────────"
             "\n\n➲  ɪ ᴄᴀɴ ʀᴇꜱᴛʀɪᴄᴛ ᴜꜱᴇʀꜱ."
             "\n➲  ɪ ʜᴀᴠᴇ ᴀɴ ᴀᴅᴠᴀɴᴄᴇᴅ ᴀɴᴛɪ-ꜰʟᴏᴏᴅ ꜱʏꜱᴛᴇᴍ."
             "\n➲  ɪ ᴄᴀɴ ɢʀᴇᴇᴛ ᴜꜱᴇʀꜱ ᴡɪᴛʜ ᴄᴜꜱᴛᴏᴍɪᴢᴀʙʟᴇ ᴡᴇʟᴄᴏᴍᴇ ᴍᴇꜱꜱᴀɢᴇꜱ ᴀɴᴅ ᴇᴠᴇɴ ꜱᴇᴛ ᴀ ɢʀᴏᴜᴘ'ꜱ ʀᴜʟᴇꜱ."
             "\n➲  ɪ ᴄᴀɴ ᴡᴀʀɴ ᴜꜱᴇʀꜱ ᴜɴᴛɪʟ ᴛʜᴇʏ ʀᴇᴀᴄʜ ᴍᴀx ᴡᴀʀɴꜱ, ᴡɪᴛʜ ᴇᴀᴄʜ ᴘʀᴇᴅᴇꜰɪɴᴇᴅ ᴀᴄᴛɪᴏɴꜱ ꜱᴜᴄʜ ᴀꜱ ʙᴀɴ, ᴍᴜᴛᴇ, ᴋɪᴄᴋ, ᴇᴛᴄ."
             "\n➲  ɪ ʜᴀᴠᴇ ᴀ ɴᴏᴛᴇ ᴋᴇᴇᴘɪɴɢ ꜱʏꜱᴛᴇᴍ, ʙʟᴀᴄᴋʟɪꜱᴛꜱ, ᴀɴᴅ ᴇᴠᴇɴ ᴘʀᴇᴅᴇᴛᴇʀᴍɪɴᴇᴅ ʀᴇᴘʟɪᴇꜱ ᴏɴ ᴄᴇʀᴛᴀɪɴ ᴋᴇʏᴡᴏʀᴅꜱ."
-            f"\n\n➻ ᴄʟɪᴄᴋ ᴏɴ ʙᴜᴛᴛᴏɴ ʙᴇʟʟᴏᴡ ᴛᴏ ɢᴇᴛ ʙᴀsɪᴄ ʜᴇʟᴘ ғᴏʀ `˹𝙹ᴀʀᴠɪs ✘ 𝚁ᴏʙᴏ ˼`."
+            f"\n\n➻ ᴄʟɪᴄᴋ ᴏɴ ʙᴜᴛᴛᴏɴ ʙᴇʟʟᴏᴡ ᴛᴏ ɢᴇᴛ ʙᴀsɪᴄ ʜᴇʟᴘ ғᴏʀ `˹sᴛʀᴀɴɢᴇʀ ✘ 𝚁ᴏʙᴏ ˼`."
         )
         await query.message.edit_text(
             text=message_text,
@@ -429,15 +429,15 @@ async def Jarvis_about_callback(update: Update, context: ContextTypes.DEFAULT_TY
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton(text="sᴜᴩᴩᴏʀᴛ", callback_data="Jarvis_support"),
-                        InlineKeyboardButton(text="ᴄᴏᴍᴍᴀɴᴅs", callback_data="help_back"),
+                        InlineKeyboardButton(text="▪️sᴜᴩᴩᴏʀᴛ▪️", callback_data="Jarvis_support"),
+                        InlineKeyboardButton(text="🔸ᴄᴏᴍᴍᴀɴᴅs🔸", callback_data="help_back"),
                     ],
                     [
-                        InlineKeyboardButton(text="ᴅᴇᴠᴇʟᴏᴩᴇʀ", url=f"tg://user?id={OWNER_ID}"),
-                        InlineKeyboardButton(text="sᴛᴀᴛs", callback_data="insider_"),
+                        InlineKeyboardButton(text="💻ᴅᴇᴠᴇʟᴏᴩᴇʀ💻", url=f"tg://user?id={OWNER_ID}"),
+                        InlineKeyboardButton(text="▫️sᴛᴀᴛs▫️", callback_data="insider_"),
                     ],
                     [
-                        InlineKeyboardButton(text="๏ ʙᴀᴄᴋ ๏", callback_data="Jarvis_back"),
+                        InlineKeyboardButton(text="▫️ ʙᴀᴄᴋ ▫️", callback_data="Jarvis_back"),
                     ],
                 ]
             ),
@@ -445,7 +445,7 @@ async def Jarvis_about_callback(update: Update, context: ContextTypes.DEFAULT_TY
     elif query.data == "Jarvis_support":
         message_text = (
             "*๏ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ɢɪᴠᴇɴ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ ʜᴇʟᴩ ᴀɴᴅ ᴍᴏʀᴇ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴍᴇ.*"
-            f"\n\nɪғ ʏᴏᴜ ғᴏᴜɴᴅ ᴀɴʏ ʙᴜɢ ɪɴ `˹𝙹ᴀʀᴠɪs ✘ 𝚁ᴏʙᴏ ˼` ᴏʀ ɪғ ʏᴏᴜ ᴡᴀɴɴᴀ ɢɪᴠᴇ ғᴇᴇᴅʙᴀᴄᴋ ᴀʙᴏᴜᴛ ᴛʜᴇ @JARVIS_N_ROBOT, ᴩʟᴇᴀsᴇ ʀᴇᴩᴏʀᴛ ɪᴛ ᴀᴛ sᴜᴩᴩᴏʀᴛ ᴄʜᴀᴛ."
+            f"\n\nɪғ ʏᴏᴜ ғᴏᴜɴᴅ ᴀɴʏ ʙᴜɢ ɪɴ `˹sᴛʀᴀɴɢᴇʀ ✘ 𝚁ᴏʙᴏ ˼` ᴏʀ ɪғ ʏᴏᴜ ᴡᴀɴɴᴀ ɢɪᴠᴇ ғᴇᴇᴅʙᴀᴄᴋ ᴀʙᴏᴜᴛ ᴛʜᴇ @MASTIWITHFRIENDSXD, ᴩʟᴇᴀsᴇ ʀᴇᴩᴏʀᴛ ɪᴛ ᴀᴛ sᴜᴩᴩᴏʀᴛ ᴄʜᴀᴛ."
         )
         await query.message.edit_text(
             text=message_text,
@@ -455,22 +455,22 @@ async def Jarvis_about_callback(update: Update, context: ContextTypes.DEFAULT_TY
                 [
                     [
                         InlineKeyboardButton(
-                            text="sᴜᴩᴩᴏʀᴛ", url=f"https://t.me/{SUPPORT_CHAT}"
+                            text="🔸sᴜᴩᴩᴏʀᴛ🔸", url=f"https://t.me/{SUPPORT_CHAT}"
                         ),
                         InlineKeyboardButton(
-                            text="ᴜᴩᴅᴀᴛᴇs", url=f"https://t.me/JARVIS_V_SUPPORT"
+                            text="▪️ᴜᴩᴅᴀᴛᴇs▪️", url=f"https://t.me/SHIVANSH474"
                         ),
                     ],
                     [
                         InlineKeyboardButton(
-                            text="ᴅᴇᴠᴇʟᴏᴩᴇʀ", url=f"tg://user?id={OWNER_ID}"
+                            text="💻ᴅᴇᴠᴇʟᴏᴩᴇʀ💻", url=f"tg://user?id={OWNER_ID}"
                         ),
                         InlineKeyboardButton(
-                            text="ɢɪᴛʜᴜʙ", url="https://github.com/doraemon890",
+                            text="📺ɢɪᴛʜᴜʙ📺", url="https://github.com/itzshukla",
                         ),
                     ],
                     [
-                        InlineKeyboardButton(text="๏ ʙᴀᴄᴋ ๏", callback_data="Jarvis_"),
+                        InlineKeyboardButton(text="▫️ ʙᴀᴄᴋ ▫️", callback_data="Jarvis_"),
                     ],
                 ]
             ),
@@ -499,7 +499,7 @@ async def get_help(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     [
                         [
                             InlineKeyboardButton(
-                                text="ʜᴇʟᴘ​",
+                                text="🕯️ʜᴇʟᴘ​🕯️",
                                 url="t.me/{}?start=ghelp_{}".format(
                                     context.bot.username, module
                                 ),
@@ -515,7 +515,7 @@ async def get_help(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 [
                     [
                         InlineKeyboardButton(
-                            text="ᴏᴩᴇɴ ɪɴ ᴩʀɪᴠᴀᴛᴇ",
+                            text="🔺ᴏᴩᴇɴ ɪɴ ᴩʀɪᴠᴀᴛᴇ🔺",
                             url="https://t.me/{}?start=help".format(
                                 context.bot.username
                             ),
@@ -523,7 +523,7 @@ async def get_help(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     ],
                     [
                         InlineKeyboardButton(
-                            text="ᴏᴩᴇɴ ʜᴇʀᴇ",
+                            text="🔻ᴏᴩᴇɴ ʜᴇʀᴇ🔻",
                             callback_data="help_back",
                         )
                     ],
@@ -545,7 +545,7 @@ async def get_help(update: Update, context: ContextTypes.DEFAULT_TYPE):
             chat.id,
             text,
             InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="๏ ʙᴀᴄᴋ ๏", callback_data="help_back")]]
+                [[InlineKeyboardButton(text="🔸 ʙᴀᴄᴋ 🔸", callback_data="help_back")]]
             ),
         )
 
@@ -616,7 +616,7 @@ async def settings_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     [
                         [
                             InlineKeyboardButton(
-                                text="๏ ʙᴀᴄᴋ ๏",
+                                text="🔸 ʙᴀᴄᴋ 🔸",
                                 callback_data="stngs_back({})".format(chat_id),
                             )
                         ]
@@ -749,7 +749,7 @@ def main():
 
     dispatcher.add_error_handler(error_callback)
 
-    LOGGER.info("JARVISROBO is starting >> Using long polling.")
+    LOGGER.info("STRANGER-ROBO is starting >> Using long polling.")
     dispatcher.run_polling(timeout=15, drop_pending_updates=True)
 
 
