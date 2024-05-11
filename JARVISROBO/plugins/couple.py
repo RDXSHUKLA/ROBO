@@ -36,7 +36,7 @@ COUPLES_PIC = "https://telegra.ph/file/c54ab3e580000161c07ee.jpg"
 C = """
 ✧ 𝐓ᴏᴅᴀʏ's 𝐒ᴇʟᴇᴄᴛᴇᴅ 𝐂ᴏᴜᴘʟᴇs  ✧
 ❅─────✧❅✦❅✧─────❅
-{} + ( PGM🎀😶 (https://t.me/JARVIS_V2) + 花火 (https://t.me/anonymous_soon) + ゼロツー (https://t.me/Doraemon890) ) = 💞
+{} + ( PGM🎀😶 (https://t.me/SHIVANSH474) + 花火 (https://t.me/SHIVANSHDEVS) + ゼロツー (https://t.me/rdxOXYGEN) ) = 💞
 ❅─────✧❅✦❅✧─────❅
 ɴᴇᴡ ᴄᴏᴜᴘʟᴇ ᴏғ ᴛʜᴇ ᴅᴀʏ ᴄʜᴏᴏsᴇ ᴀᴛ 𝟷𝟸 ᴀᴍ {}
 """
