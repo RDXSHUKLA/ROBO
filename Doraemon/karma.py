@@ -26,8 +26,8 @@ START_IMG = [
 HEY_IMG = "https://graph.org/file/8ed87bfd7c0b3dbdd1bf5.jpg"
 
 ALIVE_ANIMATION = [
-     "https://te.legra.ph/file/eace7a5d8d4b515a11e50.jpg",
-     "https://telegra.ph/file/f09aa12ffdf215b2aa6f0.jpg",
+     "https://telegra.ph/file/c6a38e667230ec959d9e1.mp4",
+     "https://telegra.ph/file/c6a38e667230ec959d9e1.mp4",
 ]
 
 FIRST_PART_TEXT = "*ʜᴇʏ* `{}` , 💫 . . ."
