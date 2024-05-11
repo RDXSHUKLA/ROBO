@@ -359,7 +359,7 @@ async def gitsource_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
     await query.answer()
 
     if query.data == "git_source":
-        source_link = "https://github.com/doraemon890"
+        source_link = "https://github.com/itzshukla"
         message_text = (
             f"""
 *ʜᴇʏ,
