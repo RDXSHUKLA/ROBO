@@ -67,9 +67,8 @@ VERIFIED_USER_WAITLIST = {}
 
 
 # <================================================ TEMPLATE WELCOME FUNCTION =======================================================>
-def circle(pfp, size=(500, 500), brightness_factor=10):
+async def circle(pfp, size=(500, 500),):
     pfp = pfp.resize(size, Image.ANTIALIAS).convert("RGBA")
-    pfp = ImageEnhance.Brightness(pfp).enhance(brightness_factor)
     bigsize = (pfp.size[0] * 3, pfp.size[1] * 3)
     mask = Image.new("L", bigsize, 0)
     draw = ImageDraw.Draw(mask)
