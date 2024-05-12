@@ -95,8 +95,8 @@ async def draw_multiple_line_text(image, text, font, text_start_height):
 async def welcomepic(pic, user, chatname, user_id, uname, brightness_factor=1.3):
     background = Image.open("Extra/bgg.jpg")
     pfp = Image.open(pic).convert("RGBA")
+    pfp = pfp.resize((500, 500))  # Resize before applying transformations
     pfp = await circle(pfp, brightness_factor=brightness_factor) 
-    pfp = pfp.resize((500, 500))
     draw = ImageDraw.Draw(background)
     font = ImageFont.truetype('Extra/Calistoga-Regular.ttf', size=60)
     welcome_font = ImageFont.truetype('Extra/Calistoga-Regular.ttf', size=60)
