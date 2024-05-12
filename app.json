@@ -51,7 +51,7 @@
       "DATABASE_URL": {
          "description": "Required for SQL database connections.",
          "required": true,
-         "value": "postgres://"
+         "value": "postgres://xstkpsmj:U-VJtcQTXFwyDzAyOoJAY4fclQt-8y6m@satao.db.elephantsql.com/xstkpsmj"
       },
       "OWNER_ID": {
          "description": "Your user ID as an integer.",
