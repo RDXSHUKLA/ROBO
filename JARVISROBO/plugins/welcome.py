@@ -11,7 +11,7 @@ from pyrogram.types import ChatMemberUpdated, Message
 from telegram.ext import (
     CommandHandler,
     MessageHandler,
-    Filters,
+    filters,
 )
 
 from Database.mongodb.toggle_mongo import dwelcome_off, dwelcome_on, is_dwelcome_on
