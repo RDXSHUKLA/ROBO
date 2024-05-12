@@ -95,7 +95,7 @@ async def welcomepic(pic, user, chat, user_id, brightness_factor=1.3):
 
     pfp_position = (48, 88)
     background.paste(pfp, pfp_position, pfp)
-    background.save(f"downloads/welcome#{id}.png")
+    background.save(f"downloads/welcome#{user_id}.png")
     return f"downloads/welcome#{id}.png"
 
 
@@ -148,7 +148,7 @@ async def member_has_joined(client, member: ChatMemberUpdated):
         except Exception as e:
             print(e)
         try:
-            os.remove(f"downloads/welcome_{user_id}.png")
+            os.remove(f"downloads/welcome#{user_id}.png")
             os.remove(f"downloads/pp{user_id}.png")
         except Exception:
             pass
