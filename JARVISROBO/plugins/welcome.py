@@ -84,7 +84,7 @@ async def welcomepic(pic, user, chat, user_id):
     background = Image.open("Extra/bgg.jpg")
     pfp = await circle(pfp, size=(500, 500))
     pfp = Image.open(pic).convert("RGBA")
-    pfp = circle(pfp, brightness_factor=brightness_factor) 
+    pfp = circle(pfp, size=(500, 500)) 
     pfp = pfp.resize((500, 500))
     draw = ImageDraw.Draw(background)
     font = ImageFont.truetype("Extra/Calistoga-Regular.ttf", size=60)
