@@ -110,6 +110,9 @@ async def welcomepic(pic, user, chat, user_id):
      #   draw.text((630, 230), f"USERNAME : {uname}", fill=(255, 255, 255), font=font)
    # draw.text((630, 300), f'NAME: {user}', fill=(255, 255, 255), font=font)
     draw.text((630, 450), f'ID: {user_id}', fill=(255, 255, 255), font=font)
+
+pfp_position = (48, 88)
+    background.paste(pfp, pfp_position, pfp)
     welcome_image_path = f"downloads/welcome_{user_id}.png"
     background.save(welcome_image_path)
     return welcome_image_path
