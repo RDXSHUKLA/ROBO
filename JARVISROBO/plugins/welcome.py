@@ -67,7 +67,7 @@ VERIFIED_USER_WAITLIST = {}
 
 
 # <================================================ TEMPLATE WELCOME FUNCTION =======================================================>
-async def circle(pfp, size=(500, 500),):
+async def circle(pfp, size=(500, 500)):
     pfp = pfp.resize(size, Image.ANTIALIAS).convert("RGBA")
     bigsize = (pfp.size[0] * 3, pfp.size[1] * 3)
     mask = Image.new("L", bigsize, 0)
@@ -77,7 +77,6 @@ async def circle(pfp, size=(500, 500),):
     mask = ImageChops.darker(mask, pfp.split()[-1])
     pfp.putalpha(mask)
     return pfp
-
 
 
 async def draw_multiple_line_text(image, text, font, text_start_height):
