@@ -10,7 +10,8 @@ from datetime import datetime
 from functools import partial
 
 import unidecode
-from PIL import Image, ImageChops, ImageDraw, ImageFont
+from PIL import Image, ImageChops, ImageDraw, ImageFont, ImageEnhance
+
 from pyrogram import filters as ft
 from pyrogram.types import ChatMemberUpdated, Message
 from telegram import ChatPermissions, InlineKeyboardButton, InlineKeyboardMarkup, Update
