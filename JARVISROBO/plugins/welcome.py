@@ -79,30 +79,15 @@ async def circle(pfp, size=(500, 500)):
     return pfp
 
 
-#async def draw_multiple_line_text(image, text, font, text_start_height):
-    #draw = ImageDraw.Draw(image)
-   # image_width, image_height = image.size
-  #  y_text = text_start_height
-  #  lines = textwrap.wrap(text, width=50)
- #   for line in lines:
-     #   line_width, line_height = #font.getsize(line)
-       # draw.text(
-          #  ((image_width - line_width) // 2, y_text), line, font=font, fill="black"
-       # )
-      #  y_text += line_height
-
-
 async def welcomepic(pic, user, chat, user_id):
     user = unidecode.unidecode(user)
     background = Image.open("Extra/bgg.jpg")
-    background = background.resize(
-        (background.size[0], background.size[1]), Image.ANTIALIAS
-    )
     pfp = Image.open(pic).convert("RGBA")
-    pfp = await circle(pfp, size=(500, 500))
-    
+    pfp = circle(pfp, brightness_factor=brightness_factor) 
+    pfp = pfp.resize((500, 500))
     draw = ImageDraw.Draw(background)
-    font = ImageFont.truetype("Extra/Calistoga-Regular.ttf", 60)
+    font = ImageFont.truetype('Extra/Calistoga-Regular.ttf', size=60)
+    welcome_font = ImageFont.truetype('Extra/Calistoga-Regular.ttf', size=60)
     
      #   draw.text((630, 230), f"USERNAME : {uname}", fill=(255, 255, 255), font=font)
    # draw.text((630, 300), f'NAME: {user}', fill=(255, 255, 255), font=font)
