@@ -105,8 +105,8 @@ async def welcomepic(pic, user, chatname, user_id, uname, brightness_factor=1.3)
 
     pfp_position = (48, 88)
     background.paste(pfp, pfp_position, pfp)
-    background.save(f"downloads/welcome#{user_id}.png")
-    return f"downloads/welcome#{user_id}.png"
+    background.save(f"downloads/welcome{user_id}.png")
+    return f"downloads/welcome{user_id}.png"
 
 
 
