@@ -96,7 +96,7 @@ async def welcomepic(pic, user, chat, user_id, brightness_factor=1.3):
     pfp_position = (48, 88)
     background.paste(pfp, pfp_position, pfp)
     background.save(f"downloads/welcome#{user_id}.png")
-    return f"downloads/welcome#{id}.png"
+    return f"downloads/welcome#{user_id}.png"
 
 
 @app.on_chat_member_updated(ft.group)
