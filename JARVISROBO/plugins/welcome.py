@@ -185,20 +185,7 @@ async def member_has_joined(client, member: ChatMemberUpdated):
             temp.MELCOW[f"welcome-{chat_id}"] = await client.send_photo(
                 member.chat.id,
                 photo=welcomeimg,
-                caption=f"**⎊─────☵ ᴡᴇʟᴄᴏᴍᴇ ☵─────⎊**
-
-    {member.chat.title} 
-
-**▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬**
-
-**❖ ɴᴀᴍᴇ ⧽** {mention}
-**❖ ɪᴅ ⧽** `{user_id}`
-**❖ ᴅᴀᴛᴇ ⧽** @{joined_date}
-**❖ ᴍᴀᴅᴇ ʙʏ ⧽** [sᴛʀᴀɴɢᴇʀ](https://t.me/SHIVANSH474)**
-
-**▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬**
-
-**⎉──────▢✭ 侖 ✭▢──────⎉**",
+                caption=f"**⎊─────☵ ᴡᴇʟᴄᴏᴍᴇ ☵─────⎊**\n\n{member.chat.title}\n\**▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬**\n\n**❖ ɴᴀᴍᴇ ⧽** {mention}\n\n**❖ ɪᴅ ⧽** `{user_id}`\n\n**❖ ᴅᴀᴛᴇ ⧽** @{joined_date}\n\n**❖ ᴍᴀᴅᴇ ʙʏ ⧽** [sᴛʀᴀɴɢᴇʀ](https://t.me/SHIVANSH474)**\n\n**▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬**\n\n**⎉──────▢✭ 侖 ✭▢──────⎉**",
             )
         except Exception as e:
             print(e)
