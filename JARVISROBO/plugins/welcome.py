@@ -100,13 +100,13 @@ async def welcomepic(pic, user, chat, user_id):
     )
     pfp = Image.open(pic).convert("RGBA")
     pfp = await circle(pfp, size=(500, 500))
-    pfp_x = 55
-    pfp_y = (background.size[1] - pfp.size[1]) // 2 + 38
+    pfp_x = 48
+    pfp_y = (background.size[1] - pfp.size[1]) // 88
     draw = ImageDraw.Draw(background)
     font = ImageFont.truetype("Extra/Calistoga-Regular.ttf", 60)
     text_width, text_height = draw.textsize(f"{user} [{user_id}]", font=font)
     text_x = 630
-    text_y = background.height - text_height - 450 - 450
+    text_y = background.height - text_height - 630 - 450
     draw.text((text_x, text_y), f"{user} [{user_id}]", font=font, fill="white")
     background.paste(pfp, (pfp_x, pfp_y), pfp)
     welcome_image_path = f"downloads/welcome_{user_id}.png"
