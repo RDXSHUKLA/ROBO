@@ -1,48 +1,26 @@
 # <============================================== IMPORTS =========================================================>
-import html
 import os
-import random
-import re
-import textwrap
 import time
-from contextlib import suppress
 from datetime import datetime
-from functools import partial
 
-import unidecode
 from PIL import Image, ImageChops, ImageDraw, ImageFont, ImageEnhance
 
 from pyrogram import filters as ft
 from pyrogram.types import ChatMemberUpdated, Message
-from telegram import ChatPermissions, InlineKeyboardButton, InlineKeyboardMarkup, Update
-from telegram.constants import ParseMode
-from telegram.error import BadRequest
-from telegram.ext import (
-    CallbackQueryHandler,
-    CommandHandler,
-    ContextTypes,
-    MessageHandler,
-    filters,
-)
-from telegram.helpers import escape_markdown, mention_html, mention_markdown
 
-import Database.sql.welcome_sql as sql
+from telegram.ext import (
+    CommandHandler,
+    MessageHandler,
+    Filters,
+)
+
 from Database.mongodb.toggle_mongo import dwelcome_off, dwelcome_on, is_dwelcome_on
-from Database.sql.global_bans_sql import is_user_gbanned
-from JARVISROBO import dispatcher
-from Doraemon.temp import temp
-from JARVISROBO import DEV_USERS
-from JARVISROBO import DEV_USERS as SUDO
-from JARVISROBO import DRAGONS, EVENT_LOGS, LOGGER, OWNER_ID, app, dispatcher, function
-from JARVISROBO.plugins.helper_funcs.chat_status import check_admin, is_user_ban_protected
-from JARVISROBO.plugins.helper_funcs.misc import build_keyboard, revert_buttons
-from JARVISROBO.plugins.helper_funcs.msg_types import get_welcome_type
-from JARVISROBO.plugins.helper_funcs.string_handling import escape_invalid_curly_brackets
-from JARVISROBO.plugins.log_channel import loggable
+
+from JARVISROBO import app, dispatcher
+from JARVISROBO.plugins.helper_funcs.chat_status import check_admin
 from JARVISROBO.utils.can_restrict import can_restrict
 
-# <=======================================================================================================>
-
+# Valid welcome formatters
 VALID_WELCOME_FORMATTERS = [
     "first",
     "last",
@@ -54,21 +32,14 @@ VALID_WELCOME_FORMATTERS = [
     "mention",
 ]
 
-ENUM_FUNC_MAP = {
-    sql.Types.TEXT.value: dispatcher.bot.send_message,
-    sql.Types.BUTTON_TEXT.value: dispatcher.bot.send_message,
-    sql.Types.STICKER.value: dispatcher.bot.send_sticker,
-    sql.Types.DOCUMENT.value: dispatcher.bot.send_document,
-    sql.Types.PHOTO.value: dispatcher.bot.send_photo,
-    sql.Types.AUDIO.value: dispatcher.bot.send_audio,
-    sql.Types.VOICE.value: dispatcher.bot.send_voice,
-    sql.Types.VIDEO.value: dispatcher.bot.send_video,
-}
+# Function map for different message types
+ENUM_FUNC_MAP = {}
 
+# Waitlist for verified users
 VERIFIED_USER_WAITLIST = {}
 
 
-# <================================================ TEMPLATE WELCOME FUNCTION =======================================================>
+# Template welcome function
 async def circle(pfp, size=(500, 500), brightness_factor=10):
     pfp = pfp.resize(size, Image.ANTIALIAS).convert("RGBA")
     pfp = ImageEnhance.Brightness(pfp).enhance(brightness_factor)
@@ -81,17 +52,16 @@ async def circle(pfp, size=(500, 500), brightness_factor=10):
     pfp.putalpha(mask)
     return pfp
 
+
 async def welcomepic(pic, user, chat, user_id, brightness_factor=1.3):
     background = Image.open("Extra/bgg.jpg")
     pfp = Image.open(pic).convert("RGBA")
-    pfp = circle(pfp, brightness_factor=brightness_factor) 
+    pfp = circle(pfp, brightness_factor=brightness_factor)
     pfp = pfp.resize((500, 500))
     draw = ImageDraw.Draw(background)
     font = ImageFont.truetype('Extra/Calistoga-Regular.ttf', size=60)
     welcome_font = ImageFont.truetype('Extra/Calistoga-Regular.ttf', size=60)
-    
- #   draw.text((630, 230), f"USERNAME : {uname}", fill=(255, 255, 255), font=font)
-   # draw.text((630, 300), f'NAME: {user}', fill=(255, 255, 255), font=font)
+
     draw.text((630, 450), f'ID: {user_id}', fill=(255, 255, 255), font=font)
 
     pfp_position = (48, 88)
@@ -109,50 +79,49 @@ async def member_has_joined(client, member: ChatMemberUpdated):
     ):
         return
     user = member.new_chat_member.user if member.new_chat_member else member.from_user
-    if user.id in SUDO:
+    chat_id = member.chat.id
+    welcome_enabled = await is_dwelcome_on(chat_id)
+    if not welcome_enabled or user.is_bot:
+        return
+    if user.id in dispatcher.DEV_USERS:
         await client.send_message(member.chat.id, "**Global Admins Joined The Chat!**")
         return
-    elif user.is_bot:
-        return
-    else:
-        chat_id = member.chat.id
-        welcome_enabled = await is_dwelcome_on(chat_id)
-        if not welcome_enabled:
-            return
-        if f"welcome-{chat_id}" in temp.MELCOW:
-            try:
-                await temp.MELCOW[f"welcome-{chat_id}"].delete()
-            except:
-                pass
-        mention = f"<a href='tg://user?id={user.id}'>{user.first_name}</a>"
-        joined_date = datetime.fromtimestamp(time.time()).strftime("%Y.%m. %d %H:%M:%S")
-        first_name = (
-            f"{user.first_name} {user.last_name}" if user.last_name else user.first_name
-        )
-        user_id = user.id
-        dc = user.dc_id
+
+    if f"welcome-{chat_id}" in temp.MELCOW:
         try:
-            pic = await client.download_media(
-                user.photo.big_file_id, file_name=f"pp{user_id}.png"
-            )
-        except AttributeError:
-            pic = "Extra/profilepic.png"
-        try:
-            welcomeimg = await welcomepic(
-                pic, user.first_name, member.chat.title, user_id
-            )
-            temp.MELCOW[f"welcome-{chat_id}"] = await client.send_photo(
-                member.chat.id,
-                photo=welcomeimg,
-                caption=f"**𝗛𝗲𝘆❗️{mention}, 𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝗧𝗼 {member.chat.title} 𝗚𝗿𝗼𝘂𝗽.**\n\n**➖➖➖➖➖➖➖➖➖➖➖➖**\n**𝗡𝗔𝗠𝗘 : {first_name}**\n**𝗜𝗗 : {user_id}**\n**𝗗𝗔𝗧𝗘 𝗝𝗢𝗜𝗡𝗘𝗗 : {joined_date}**",
-            )
-        except Exception as e:
-            print(e)
-        try:
-            os.remove(f"downloads/welcome#{user_id}.png")
-            os.remove(f"downloads/pp{user_id}.png")
-        except Exception:
+            await temp.MELCOW[f"welcome-{chat_id}"].delete()
+        except:
             pass
+
+    mention = f"<a href='tg://user?id={user.id}'>{user.first_name}</a>"
+    joined_date = datetime.fromtimestamp(time.time()).strftime("%Y.%m. %d %H:%M:%S")
+    first_name = (
+        f"{user.first_name} {user.last_name}" if user.last_name else user.first_name
+    )
+    user_id = user.id
+    dc = user.dc_id
+    try:
+        pic = await client.download_media(
+            user.photo.big_file_id, file_name=f"pp{user_id}.png"
+        )
+    except AttributeError:
+        pic = "Extra/profilepic.png"
+    try:
+        welcomeimg = await welcomepic(
+            pic, user.first_name, member.chat.title, user_id
+        )
+        temp.MELCOW[f"welcome-{chat_id}"] = await client.send_photo(
+            member.chat.id,
+            photo=welcomeimg,
+            caption=f"**𝗛𝗲𝘆❗️{mention}, 𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝗧𝗼 {member.chat.title} 𝗚𝗿𝗼𝘂𝗽.**\n\n**➖➖➖➖➖➖➖➖➖➖➖➖**\n**𝗡𝗔𝗠𝗘 : {first_name}**\n**𝗜𝗗 : {user_id}**\n**𝗗𝗔𝗧𝗘 𝗝𝗢𝗜𝗡𝗘𝗗 : {joined_date}**",
+        )
+    except Exception as e:
+        print(e)
+    try:
+        os.remove(f"downloads/welcome#{user_id}.png")
+        os.remove(f"downloads/pp{user_id}.png")
+    except Exception:
+        pass
 
 
 @app.on_message(ft.command("dwelcome on"))
@@ -177,6 +146,7 @@ async def disable_welcome(_, message: Message):
         return
     await dwelcome_off(chat_id)
     await message.reply_text("New default welcome disabled for this chat.")
+
 
 
 # <=======================================================================================================>
