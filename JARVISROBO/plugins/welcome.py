@@ -134,7 +134,7 @@ async def welcomepic(pic, user, chat, user_id):
     text_width, text_height = draw.textsize(f"{user} [{user_id}]", font=font)
     text_x = 20
     text_y = background.height - text_height - 20 - 25
-    draw.text((text_x, text_y), f"{user} [{user_id}]", font=font, fill="black")
+    draw.text((text_x, text_y), f"{user} [{user_id}]", font=font, fill="white")
     background.paste(pfp, (pfp_x, pfp_y), pfp)
     welcome_image_path = f"downloads/welcome_{user_id}.png"
     background.save(welcome_image_path)
