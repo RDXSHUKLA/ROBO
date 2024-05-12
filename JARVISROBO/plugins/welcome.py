@@ -67,7 +67,7 @@ VERIFIED_USER_WAITLIST = {}
 
 
 # <================================================ TEMPLATE WELCOME FUNCTION =======================================================>
-async def circle(pfp, size=(259, 259)):
+async def circle(pfp, size=(500, 500)):
     pfp = pfp.resize(size, Image.ANTIALIAS).convert("RGBA")
     bigsize = (pfp.size[0] * 3, pfp.size[1] * 3)
     mask = Image.new("L", bigsize, 0)
@@ -99,14 +99,14 @@ async def welcomepic(pic, user, chat, user_id):
         (background.size[0], background.size[1]), Image.ANTIALIAS
     )
     pfp = Image.open(pic).convert("RGBA")
-    pfp = await circle(pfp, size=(259, 259))
+    pfp = await circle(pfp, size=(500, 500))
     pfp_x = 55
     pfp_y = (background.size[1] - pfp.size[1]) // 2 + 38
     draw = ImageDraw.Draw(background)
-    font = ImageFont.truetype("Extra/Calistoga-Regular.ttf", 42)
+    font = ImageFont.truetype("Extra/Calistoga-Regular.ttf", 60)
     text_width, text_height = draw.textsize(f"{user} [{user_id}]", font=font)
-    text_x = 20
-    text_y = background.height - text_height - 20 - 25
+    text_x = 630
+    text_y = background.height - text_height - 450 - 450
     draw.text((text_x, text_y), f"{user} [{user_id}]", font=font, fill="white")
     background.paste(pfp, (pfp_x, pfp_y), pfp)
     welcome_image_path = f"downloads/welcome_{user_id}.png"
