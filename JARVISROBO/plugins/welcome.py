@@ -66,11 +66,36 @@ ENUM_FUNC_MAP = {
 VERIFIED_USER_WAITLIST = {}
 
 
-# <================================================ TEMPLATE WELCOME FUNCTION =======================================================>
+# <=======================================================================================================>
 
-async def circle(pfp, size=(500, 500), brightness_factor=10):
+VALID_WELCOME_FORMATTERS = [
+    "first",
+    "last",
+    "fullname",
+    "username",
+    "id",
+    "count",
+    "chatname",
+    "mention",
+]
+
+ENUM_FUNC_MAP = {
+    sql.Types.TEXT.value: dispatcher.bot.send_message,
+    sql.Types.BUTTON_TEXT.value: dispatcher.bot.send_message,
+    sql.Types.STICKER.value: dispatcher.bot.send_sticker,
+    sql.Types.DOCUMENT.value: dispatcher.bot.send_document,
+    sql.Types.PHOTO.value: dispatcher.bot.send_photo,
+    sql.Types.AUDIO.value: dispatcher.bot.send_audio,
+    sql.Types.VOICE.value: dispatcher.bot.send_voice,
+    sql.Types.VIDEO.value: dispatcher.bot.send_video,
+}
+
+VERIFIED_USER_WAITLIST = {}
+
+
+# <================================================ TEMPLATE WELCOME FUNCTION =======================================================>
+async def circle(pfp, size=(259, 259)):
     pfp = pfp.resize(size, Image.ANTIALIAS).convert("RGBA")
-    pfp = ImageEnhance.Brightness(pfp).enhance(brightness_factor)
     bigsize = (pfp.size[0] * 3, pfp.size[1] * 3)
     mask = Image.new("L", bigsize, 0)
     draw = ImageDraw.Draw(mask)
@@ -79,6 +104,7 @@ async def circle(pfp, size=(500, 500), brightness_factor=10):
     mask = ImageChops.darker(mask, pfp.split()[-1])
     pfp.putalpha(mask)
     return pfp
+
 
 async def draw_multiple_line_text(image, text, font, text_start_height):
     draw = ImageDraw.Draw(image)
@@ -92,22 +118,27 @@ async def draw_multiple_line_text(image, text, font, text_start_height):
         )
         y_text += line_height
 
-async def welcomepic(pic, user, chatname, user_id, uname, brightness_factor=1.3):
+
+async def welcomepic(pic, user, chat, user_id):
+    user = unidecode.unidecode(user)
     background = Image.open("Extra/bgg.jpg")
+    background = background.resize(
+        (background.size[0], background.size[1]), Image.ANTIALIAS
+    )
     pfp = Image.open(pic).convert("RGBA")
-    pfp = pfp.resize((500, 500))  # Resize before applying transformations
-    pfp = await circle(pfp, brightness_factor=brightness_factor) 
+    pfp = await circle(pfp, size=(259, 259))
+    pfp_x = 55
+    pfp_y = (background.size[1] - pfp.size[1]) // 2 + 38
     draw = ImageDraw.Draw(background)
-    font = ImageFont.truetype('Extra/Calistoga-Regular.ttf', size=60)
-    welcome_font = ImageFont.truetype('Extra/Calistoga-Regular.ttf', size=60)
-
-    draw.text((630, 450), f'ID: {user_id}', fill=(255, 255, 255), font=font)
-
-    pfp_position = (48, 88)
-    background.paste(pfp, pfp_position, pfp)
-    background.save(f"downloads/welcome{user_id}.png")
-    return f"downloads/welcome{user_id}.png"
-
+    font = ImageFont.truetype("Extra/Calistoga-Regular.ttf", 42)
+    text_width, text_height = draw.textsize(f"{user} [{user_id}]", font=font)
+    text_x = 20
+    text_y = background.height - text_height - 20 - 25
+    draw.text((text_x, text_y), f"{user} [{user_id}]", font=font, fill="white")
+    background.paste(pfp, (pfp_x, pfp_y), pfp)
+    welcome_image_path = f"downloads/welcome_{user_id}.png"
+    background.save(welcome_image_path)
+    return welcome_image_path
 
 
 @app.on_chat_member_updated(ft.group)
