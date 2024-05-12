@@ -67,32 +67,48 @@ VERIFIED_USER_WAITLIST = {}
 
 
 # <================================================ TEMPLATE WELCOME FUNCTION =======================================================>
-# Functions
-async def circle(pfp, size=(500, 500)):
-    pfp = pfp.resize(size, Image.LANCZOS).convert("RGBA")
+async def circle(pfp, size=(259, 259)):
+    pfp = pfp.resize(size, Image.ANTIALIAS).convert("RGBA")
     bigsize = (pfp.size[0] * 3, pfp.size[1] * 3)
     mask = Image.new("L", bigsize, 0)
     draw = ImageDraw.Draw(mask)
     draw.ellipse((0, 0) + bigsize, fill=255)
-    mask = mask.resize(pfp.size, Image.LANCZOS)
+    mask = mask.resize(pfp.size, Image.ANTIALIAS)
     mask = ImageChops.darker(mask, pfp.split()[-1])
     pfp.putalpha(mask)
     return pfp
 
 
-async def welcomepic(pic, user, chat, user_id, user_username):
+async def draw_multiple_line_text(image, text, font, text_start_height):
+    draw = ImageDraw.Draw(image)
+    image_width, image_height = image.size
+    y_text = text_start_height
+    lines = textwrap.wrap(text, width=50)
+    for line in lines:
+        line_width, line_height = font.getsize(line)
+        draw.text(
+            ((image_width - line_width) // 2, y_text), line, font=font, fill="black"
+        )
+        y_text += line_height
+
+
+async def welcomepic(pic, user, chat, user_id):
+    user = unidecode.unidecode(user)
     background = Image.open("Extra/bgg.jpg")
+    background = background.resize(
+        (background.size[0], background.size[1]), Image.ANTIALIAS
+    )
     pfp = Image.open(pic).convert("RGBA")
-    pfp = circle(pfp)
-    pfp = pfp.resize((500, 500))
+    pfp = await circle(pfp, size=(259, 259))
+    pfp_x = 55
+    pfp_y = (background.size[1] - pfp.size[1]) // 2 + 38
     draw = ImageDraw.Draw(background)
-    font_large = ImageFont.truetype('Extra/ArialReg.ttf', size=60)
-    font_small = ImageFont.truetype('Extra/ArialReg.ttf', size=60)
-   # draw.text((421, 715), f'{user}', fill=(242, 242, 242), font=font_large)
-    draw.text((630, 450), f'{user_id}', fill=(242, 242, 242), font=font_large)
-    #draw.text((570, 1308), f"{user_username}", fill=(242, 242, 242), font=font_large)
-    pfp_position = (1895, 399)
-    background.paste(pfp, pfp_position, pfp)
+    font = ImageFont.truetype("Extra/Calistoga-Regular.ttf", 42)
+    text_width, text_height = draw.textsize(f"{user} [{user_id}]", font=font)
+    text_x = 20
+    text_y = background.height - text_height - 20 - 25
+    draw.text((text_x, text_y), f"{user} [{user_id}]", font=font, fill="white")
+    background.paste(pfp, (pfp_x, pfp_y), pfp)
     welcome_image_path = f"downloads/welcome_{user_id}.png"
     background.save(welcome_image_path)
     return welcome_image_path
@@ -134,45 +150,25 @@ async def member_has_joined(client, member: ChatMemberUpdated):
                 user.photo.big_file_id, file_name=f"pp{user_id}.png"
             )
         except AttributeError:
-            pic = "Extra/upic.png"
-        if (temp.MELCOW).get(f"welcome-{member.chat.id}") is not None:
-            try:
-                welcomeimg = await welcomepic(
-                    pic, user.first_name, member.chat.title, user_id, user.username
-                )
-                button_text = "๏ ᴠɪᴇᴡ ɴᴇᴡ ᴍᴇᴍʙᴇʀ ๏"
-                add_button_text = "๏ ᴋɪᴅɴᴀᴘ ᴍᴇ ๏"
-                deep_link = f"tg://openmessage?user_id={user.id}"
-                add_link = f"https://t.me/{app.username}?startgroup=true"
-                temp.MELCOW[f"welcome-{member.chat.id}"] = await app.send_photo(
-                    member.chat.id,
-                    photo=welcomeimg,
-                    caption=f"""
-**❅────✦ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ✦────❅
-{member.chat.title}
-▰▰▰▰▰▰▰▰▰▰▰▰▰
-➻ Nᴀᴍᴇ ✧ {user.mention}
-➻ Iᴅ ✧ {user.id}
-➻ Usᴇʀɴᴀᴍᴇ ✧ @{user.username}
-➻ Tᴏᴛᴀʟ Mᴇᴍʙᴇʀs ✧ {count}
-▰▰▰▰▰▰▰▰▰▰▰▰▰**
-**❅─────✧❅✦❅✧─────❅**
-""",
-                    reply_markup=InlineKeyboardMarkup([
-                        [InlineKeyboardButton(button_text, url=deep_link)],
-                        [InlineKeyboardButton(text=add_button_text, url=add_link)],
-                    ])
-                )
-            except Exception as e:
-                print(e)
-            try:
-                os.remove(f"downloads/welcome_{user_id}.png")
-                os.remove(f"downloads/pp{user_id}.png")
-            except Exception:
-                pass
+            pic = "Extra/profilepic.png"
+        try:
+            welcomeimg = await welcomepic(
+                pic, user.first_name, member.chat.title, user_id
+            )
+            temp.MELCOW[f"welcome-{chat_id}"] = await client.send_photo(
+                member.chat.id,
+                photo=welcomeimg,
+                caption=f"**𝗛𝗲𝘆❗️{mention}, 𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝗧𝗼 {member.chat.title} 𝗚𝗿𝗼𝘂𝗽.**\n\n**➖➖➖➖➖➖➖➖➖➖➖➖**\n**𝗡𝗔𝗠𝗘 : {first_name}**\n**𝗜𝗗 : {user_id}**\n**𝗗𝗔𝗧𝗘 𝗝𝗢𝗜𝗡𝗘𝗗 : {joined_date}**",
+            )
+        except Exception as e:
+            print(e)
+        try:
+            os.remove(f"downloads/welcome_{user_id}.png")
+            os.remove(f"downloads/pp{user_id}.png")
+        except Exception:
+            pass
 
 
-# Enable default welcome message for the chat
 @app.on_message(ft.command("dwelcome on"))
 @can_restrict
 async def enable_welcome(_, message: Message):
@@ -182,10 +178,9 @@ async def enable_welcome(_, message: Message):
         await message.reply_text("Default welcome is already enabled")
         return
     await dwelcome_on(chat_id)
-    await message.reply_text("Default welcome message enabled for this chat.")
+    await message.reply_text("New default welcome message enabled for this chat.")
 
 
-# Disable default welcome message for the chat
 @app.on_message(ft.command("dwelcome off"))
 @can_restrict
 async def disable_welcome(_, message: Message):
@@ -195,8 +190,7 @@ async def disable_welcome(_, message: Message):
         await message.reply_text("Default welcome is already disabled")
         return
     await dwelcome_off(chat_id)
-    await message.reply_text("Default welcome message disabled for this chat.")
-
+    await message.reply_text("New default welcome disabled for this chat.")
 
 
 # <=======================================================================================================>
@@ -319,7 +313,7 @@ async def new_member(update: Update, context: ContextTypes.DEFAULT_TYPE):
     new_members = update.effective_message.new_chat_members
 
     for new_mem in new_members:
-        if new_mem.id == bot.id and not JARVISROBO.ALLOW_CHATS:
+        if new_mem.id == bot.id and not Mikobot.ALLOW_CHATS:
             with suppress(BadRequest):
                 await update.effective_message.reply_text(
                     "Groups are disabled for {}, I'm outta here.".format(bot.first_name)
