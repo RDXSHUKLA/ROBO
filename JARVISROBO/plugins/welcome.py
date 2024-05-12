@@ -88,7 +88,7 @@ async def circle(pfp, size=(500, 500)):
      #   line_width, line_height = #font.getsize(line)
        # draw.text(
           #  ((image_width - line_width) // 2, y_text), line, font=font, fill="black"
-        )
+       # )
       #  y_text += line_height
 
 
